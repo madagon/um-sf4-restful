@@ -10,3 +10,8 @@ fos_user:
     registration:
         form:
             type: App\Form\RegistrationFormType
+
+    group:
+        group_class: App\Entity\UserGroup
+        form:
+            type: App\Form\UserGroupFormType

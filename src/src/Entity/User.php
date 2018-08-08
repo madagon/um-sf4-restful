@@ -46,6 +46,15 @@ class User extends BaseUser
      */
     private $fullname;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\UserGroup")
+     * @ORM\JoinTable(name="user_user_groups",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     */
+    protected $groups;
+
     public function __construct()
     {
         parent::__construct();

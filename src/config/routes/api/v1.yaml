@@ -1,3 +1,7 @@
 users:
     type:     rest
     resource: App\Controller\API\V1\UserController
+
+groups:
+    type:     rest
+    resource: App\Controller\API\V1\UsergroupController

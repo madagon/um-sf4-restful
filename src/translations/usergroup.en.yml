@@ -1,0 +1,7 @@
+usergroup:
+    validators:
+        name:
+            not_exists: "The group does not exists"
+            duplicate: "The name is already created"
+
+        not_empty: "Group contains users"

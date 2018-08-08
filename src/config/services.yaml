@@ -33,3 +33,7 @@ services:
     App\Controller\API\V1\UserController:
         arguments:
             $userFormFactory: '@fos_user.registration.form.factory'
+
+    App\Controller\API\V1\UsergroupController:
+        arguments:
+            $userFormFactory: '@fos_user.group.form.factory'
