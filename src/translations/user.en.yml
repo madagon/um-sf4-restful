@@ -1,0 +1,4 @@
+user:
+    validators:
+        username:
+            not_exists: "The username does not exist"

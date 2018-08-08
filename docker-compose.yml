@@ -13,13 +13,14 @@ services:
     command: /var/local/entrypoint.sh
     
   mysql:
+    container_name: "mysql_7125788361"
     build: ./docker/mysql
     volumes:
         - ./docker/mysql/data:/var/lib/mysql
     environment:
         - MYSQL_ROOT_HOST=%
         - MYSQL_DATABASE=db
-        - MYSQL_ROOT_PASSWORD=mysql@
+        - MYSQL_ROOT_PASSWORD=mysql123
     ports:
         - '3306:3306'
     restart: always
