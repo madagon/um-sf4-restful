@@ -1,0 +1,37 @@
+version: '2'
+services:
+  data:
+    build: ./docker/data
+    volumes:
+      - ./src:/www
+    command: /var/local/entrypoint.sh
+    
+  php:
+    build: ./docker/php
+    volumes_from:
+      - data
+    command: /var/local/entrypoint.sh
+    
+  mysql:
+    build: ./docker/mysql
+    volumes:
+        - ./docker/mysql/data:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_HOST=%
+        - MYSQL_DATABASE=db
+        - MYSQL_ROOT_PASSWORD=mysql@
+    ports:
+        - '3306:3306'
+    restart: always
+
+  nginx:
+    build:
+      context: ./docker/nginx
+    ports:
+      - "8001:80"
+    links:
+      - php
+      - mysql
+    volumes_from:
+      - php
+      - data
