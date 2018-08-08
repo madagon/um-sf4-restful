@@ -1,3 +1,9 @@
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+
 api_v1:
     resource: ./routes/api/v1.yaml
     prefix: api/v1

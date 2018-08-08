@@ -4,7 +4,7 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     providers:
-        in_memory: { memory: ~ }
+        # in_memory: { memory: ~ }
         fos_userbundle:
             id: fos_user.user_provider.username
 
@@ -17,6 +17,7 @@ security:
             pattern: ^/
             stateless: true
             anonymous: true
+            fos_oauth: true
 
         main:
             anonymous: true
@@ -32,5 +33,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/api/v1/usergroups/, role: ROLE_ADMIN }
+        - { path: ^/api/v1/users/, role: ROLE_ADMIN }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
