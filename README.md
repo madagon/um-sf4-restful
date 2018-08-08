@@ -5,6 +5,7 @@ Assuming you have docker installed, cd into the cloned directory and run the fol
 
 * `sudo docker-compose up -d`
 * `sudo docker-compose exec php composer install`
+* `sudo docker-compose exec php php bin/console doctrine:schema:update --force`
 * Setup a new client: `sudo docker-compose exec php php bin/console fos:oauth-server:create-client --grant-type="token" --grant-type="authorization_code" --grant-type="password"`
 * Create admin user: `sudo docker-compose exec php php bin/console fos:user:create admin --super-admin`
 
